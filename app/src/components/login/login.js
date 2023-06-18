@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 // import styles from './login.scss';
@@ -7,6 +7,7 @@ import image from '../../images/comman.jpg';
 const Login = props => {
 
 	const navigate = useNavigate()
+	const [data, setData] = useState({ email: "", password: ""})
 
 	const onclick = (e) => {
 		if (e.target.name === 'btn-forgetpassword') {
@@ -17,6 +18,12 @@ const Login = props => {
 		}
 	}
 
+	const onChange = (e) => {
+        setData({ ...data, [e.target.name]: e.target.value })
+    }
+
+	const handleSubmit = async (e) => { }
+	
 	return (
 
 		<div>
@@ -28,14 +35,14 @@ const Login = props => {
 						</div>
 						<div class="d-grid col-md-6 align-items-center">
 							<div class="card-body">
-								<form>
+								<form onSubmit={handleSubmit}>
 									<div class="mb-3">
 										<label for="exampleInputEmail1" class="form-label">Email address</label>
-										<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+										<input type="email" class="form-control" id="exampleInputEmail1" name="email" onChange={onChange} />
 									</div>
 									<div class="mb-3">
 										<label for="exampleInputPassword1" class="form-label">Password</label>
-										<input type="password" class="form-control" id="exampleInputPassword1" />
+										<input type="password" class="form-control" id="exampleInputPassword1" name="password" onChange={onChange} />
 									</div>
 									<div class='mb-3'>
 										<button type="button" class="btn" name='btn-forgetpassword' onClick={onclick}>Forget Password</button>

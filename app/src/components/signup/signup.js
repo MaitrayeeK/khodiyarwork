@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 // import styles from './signup.scss';
@@ -6,12 +6,19 @@ import image from '../../images/comman.jpg';
 
 const Signup = props => {
 	const navigate = useNavigate()
+    const [data, setData] = useState({ email: "", password: "", fname: "", lname: "" })
 
 	const onclick = (e) => {
 		if (e.target.name === 'btn-login') {
 			navigate("/")
 		}
 	}
+
+	const onChange = (e) => {
+        setData({ ...data, [e.target.name]: e.target.value })
+    }
+
+	const handleSubmit = async (e) => { }
 
 	return (
 		<div>
@@ -23,22 +30,22 @@ const Signup = props => {
 						</div>
 						<div class="d-grid col-md-6 align-items-center">
 							<div class="card-body">
-								<form>
+								<form onSubmit={handleSubmit}>
 									<div class="mb-3">
 										<label for="exampleInputFirstName" class="form-label">First Name</label>
-										<input type="email" class="form-control" id="exampleInputFirstName" aria-describedby="emailHelp" />
+										<input type="email" class="form-control" id="exampleInputFirstName" name='fname' onChange={onChange} />
 									</div>
 									<div class="mb-3">
 										<label for="exampleInputLastName" class="form-label">Last Name</label>
-										<input type="email" class="form-control" id="exampleInputLastName" aria-describedby="emailHelp" />
+										<input type="email" class="form-control" id="exampleInputLastName" name='lname' onChange={onChange} />
 									</div>
 									<div class="mb-3">
 										<label for="exampleInputEmail1" class="form-label">Email address</label>
-										<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+										<input type="email" class="form-control" id="exampleInputEmail1" name='email' onChange={onChange} />
 									</div>
 									<div class="mb-3">
 										<label for="exampleInputPassword1" class="form-label">Password</label>
-										<input type="password" class="form-control" id="exampleInputPassword1" />
+										<input type="password" class="form-control" id="exampleInputPassword1" name='password' onChange={onChange}/>
 									</div>
 									<div class='mb-3 text-center'>
 										<button type="submit" class="btn btn-primary mb-3">Submit</button>
