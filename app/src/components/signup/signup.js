@@ -40,8 +40,9 @@ const Signup = props => {
 										<label for="exampleInputPassword1" class="form-label">Password</label>
 										<input type="password" class="form-control" id="exampleInputPassword1" />
 									</div>
-									<button type="submit" class="btn btn-primary mb-3">Submit</button>
-									<div class='mb-3'>
+									<div class='mb-3 text-center'>
+										<button type="submit" class="btn btn-primary mb-3">Submit</button>
+										<br/>
 										<label class="form-label">Already have an account ?</label> <button type="button" class="btn mx-2" name='btn-login' onClick={onclick}>Login</button>
 									</div>
 								</form>

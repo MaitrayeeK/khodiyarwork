@@ -37,9 +37,13 @@ const Login = props => {
 										<label for="exampleInputPassword1" class="form-label">Password</label>
 										<input type="password" class="form-control" id="exampleInputPassword1" />
 									</div>
-									<button type="submit" class="btn btn-primary mb-3">Submit</button>
-									<button type="button" class="btn mx-2 mb-3" name='btn-forgetpassword' onClick={onclick}>Forget Password</button>
 									<div class='mb-3'>
+										<button type="button" class="btn" name='btn-forgetpassword' onClick={onclick}>Forget Password</button>
+									</div>
+									<div class='text-center'>
+										<button type="submit" class="btn btn-primary mb-3">Submit</button>
+									</div>
+									<div class='mb-3 text-center'>
 										<label class="form-label">Don't have an account ?</label>
 										<button type="button" class="btn mx-2" name='btn-signup' onClick={onclick}>Signup</button>
 									</div>
